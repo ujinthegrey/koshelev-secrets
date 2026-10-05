@@ -15,7 +15,7 @@ permalink: "tags/{{ tag | slugify }}/"
   {% for recipe in collections.secrets %}
     {% if tag in recipe.data.tags %}
       <li>
-        <a href="{{ recipe.url }}">{{ recipe.data.title }}</a>
+        <a href="{{ secret.url | url }}">{{ secret.data.title }}</a>
       </li>
     {% endif %}
   {% endfor %}

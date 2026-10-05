@@ -11,7 +11,7 @@ hideHeader: true
 <ul class="recipe-list">
   {% for secret in collections.secrets %}
     <li>
-      <a href="{{ secret.url }}">{{ secret.data.title }}</a>
+      <a href="{{ secret.url | url }}">{{ secret.data.title }}</a>
     </li>
   {% endfor %}
 </ul>
