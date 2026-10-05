@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — koshelev secrets</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
 </head>
 
 <body>
 
 {% if not hideHeader %}
   <header>
-    <a href="/">koshelev secrets</a>
+    <a href="{{ '/' | url }}">koshelev secrets</a>
   </header>
 {% endif %}
 
@@ -21,7 +21,7 @@
   {% if tags %}
     <div class="tags">
       {% for tag in tags %}
-        <a class="tag" href="/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+        <a class="tag" href="{{ '/tags/' | url }}{{ tag | slugify }}/">#{{ tag }}</a>
       {% endfor %}
     </div>
   {% endif %}
