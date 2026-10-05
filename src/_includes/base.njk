@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} — koshelev secrets</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+{% if not hideHeader %}
+  <header>
+    <a href="/">koshelev secrets</a>
+  </header>
+{% endif %}
+
+  <main>
+  {{ content | safe }}
+
+  {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        <a class="tag" href="/tags/{{ tag | slugify }}/">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+  </main>
+
+</body>
+</html>

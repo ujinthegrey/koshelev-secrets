@@ -1,0 +1,255 @@
+/* ===== BASE ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  font-size: 1.2rem;
+  line-height: 1.6;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* ===== COLORS ===== */
+
+:root {
+  --bg: #eeeeee;
+  --bg-header: rgba(255, 255, 255, 0.1);
+  --text: #222222;
+  --text-accent: #008000;
+  --border: #d0d0d0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #222222;
+    --bg-header: rgba(255, 255, 255, 0.1);
+    --text: #dddddd;
+    --text-accent: #77dd77;
+    --border: #444444;
+
+    color-scheme: dark;
+  }
+}
+
+
+/* ===== LINKS ===== */
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-skip-ink: auto;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-accent);
+}
+
+
+/* ===== HEADER ===== */
+
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-header);
+}
+
+header a {
+  display: block;
+  max-width: 75ch;
+  margin: 0 auto;
+  padding: 1rem 10px;
+
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: .5rem;
+
+  text-align: center;
+}
+
+header a:hover {
+  color: var(--text-accent);
+}
+
+
+/* ===== HEADER ===== */
+.home-title {
+  text-align: center;
+  letter-spacing: .5rem;
+}
+
+.home-tagline {
+  text-align: center;
+}
+
+/* ===== MAIN ===== */
+
+main {
+  max-width: 75ch;
+  margin: 0 auto;
+  padding: 3rem 10px;
+}
+
+
+/* ===== H1-H6 ===== */
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h3 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+
+/* ===== TEXT ===== */
+
+p {
+  text-wrap: pretty;
+}
+
+main > p:first-of-type {
+  margin-top: -0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+
+/* ===== LISTS ===== */
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+
+/* ===== TAGS ===== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-top: 3rem;
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--border);
+}
+
+.tag {
+  color: var(--text-accent);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.1rem;
+  }
+
+  main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/* ===== LIST OF SECRETS ===== */
+
+.recipe-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe-list li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recipe-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.recipe-list a {
+  display: block;
+  padding: 0.9rem 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.recipe-list a:hover {
+  color: var(--text-accent);
+}
+
+/* ===== SECRET PAGE ===== */
+
+main h1 {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+main h2 {
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+main ol li {
+  margin-bottom: 0.8rem;
+}
+
+
+/* ===== TAG TITLE ===== */
+
+.tag-title {
+  font-style: italic;
+  color: var(--text-accent);
+}
