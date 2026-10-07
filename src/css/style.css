@@ -55,7 +55,7 @@ body {
 
 a {
   color: var(--text);
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-skip-ink: auto;
   transition: color 0.2s ease;
 }
@@ -90,7 +90,6 @@ header a {
 header a:hover {
   color: var(--text-accent);
 }
-
 
 /* ===== HEADER ===== */
 .home-title {
@@ -177,9 +176,11 @@ li {
 }
 
 .tag {
-  color: var(--text-accent);
-  font-size: 0.95rem;
   font-style: italic;
+}
+
+.tag:hover {
+  color: var(--text-accent);
 }
 
 
@@ -187,7 +188,7 @@ li {
 
 @media (max-width: 600px) {
   body {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   main {
@@ -196,7 +197,7 @@ li {
   }
 
   h1 {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
 }
 
@@ -234,6 +235,7 @@ li {
 main h1 {
   margin-bottom: 2.5rem;
   text-align: center;
+  color: var(--text-accent);
 }
 
 main h2 {
