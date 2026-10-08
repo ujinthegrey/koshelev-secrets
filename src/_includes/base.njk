@@ -12,7 +12,18 @@
 
 {% if not hideHeader %}
   <header>
-    <a href="{{ '/' | url }}">koshelev secrets</a>
+  <a href="{{ '/' | url }}" class="site-logo">
+    <span class="site-logo-mark">
+      <picture>
+        <source
+          srcset="{{ '/logo-light.svg' | url }}"
+          media="(prefers-color-scheme: light)">
+        <img src="{{ '/favicon.svg?v=2' | url }}" alt="">
+</picture>
+      <span>koshelev</span>
+    </span>
+    <span>secrets</span>
+  </a>
   </header>
 {% endif %}
 

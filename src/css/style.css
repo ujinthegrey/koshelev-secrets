@@ -34,7 +34,7 @@ body {
   --bg: #eeeeee;
   --bg-header: rgba(255, 255, 255, 0.1);
   --text: #222222;
-  --text-accent: #008000;
+  --text-accent: #daa743;
   --border: #d0d0d0;
 }
 
@@ -43,7 +43,7 @@ body {
     --bg: #222222;
     --bg-header: rgba(255, 255, 255, 0.1);
     --text: #dddddd;
-    --text-accent: #77dd77;
+    --text-accent: #daa743;
     --border: #444444;
 
     color-scheme: dark;
@@ -73,7 +73,13 @@ header {
 }
 
 header a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 0.7rem;
+  row-gap: 0;
+
   max-width: 75ch;
   margin: 0 auto;
   padding: 1rem 10px;
@@ -85,6 +91,25 @@ header a {
   letter-spacing: .5rem;
 
   text-align: center;
+}
+
+.site-logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  white-space: nowrap;
+}
+
+.site-logo picture {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  width: 1.8rem;
+  height: 1.8rem;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 header a:hover {
