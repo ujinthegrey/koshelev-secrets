@@ -235,7 +235,6 @@ li {
 main h1 {
   margin-bottom: 2.5rem;
   text-align: center;
-  color: var(--text-accent);
 }
 
 main h2 {
@@ -253,5 +252,33 @@ main ol li {
 
 .tag-title {
   font-style: italic;
+  color: var(--text-accent);
+}
+
+/* ===== NAV ===== */
+
+.section-nav {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.section-nav a,
+.section-nav .active {
+  margin: 0 4px;
+}
+
+.section-nav .active {
+  font-weight: bold;
+}
+
+.section-nav .separator {
+  margin: 0 2px;
+}
+
+
+/* ===== ERROR TITLE ===== */
+
+.error-title {
+  font-size: 8rem;
   color: var(--text-accent);
 }

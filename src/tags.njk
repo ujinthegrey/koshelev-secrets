@@ -1,6 +1,7 @@
 ---
 layout: base.njk
-title: koshelev secrets
+title: Теги
+permalink: "/tags/"
 hideHeader: true
 ---
 
@@ -9,15 +10,15 @@ hideHeader: true
 <p class="home-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>
 
 <nav class="section-nav">
-  <span class="active">Рецепты</span>
+  <a href="{{ '/' | url }}">Рецепты</a>
   <span class="separator">|</span>
-  <a href="{{ '/tags/' | url }}">Теги</a>
+  <span class="active">Теги</span>
 </nav>
 
 <ul class="recipe-list">
-  {% for secret in collections.secrets %}
+  {% for tag in collections.tagList %}
     <li>
-      <a href="{{ secret.url | url }}">{{ secret.data.title }}</a>
+      <a href="{{ '/tags/' | url }}{{ tag | slugify }}/">#{{ tag }}</a>
     </li>
   {% endfor %}
 </ul>

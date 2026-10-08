@@ -1,6 +1,7 @@
 module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/favicon.svg");
 
   eleventyConfig.addCollection("secrets", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/secrets/*.md");
