@@ -1,18 +1,11 @@
 ---
 layout: base.njk
 title: koshelev secrets
-hideHeader: true
 ---
-
-<h1 class="home-title">koshelev secrets</h1>
 
 <p class="home-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>
 
-<nav class="section-nav">
-  <span class="active">Рецепты</span>
-  <span class="separator">|</span>
-  <a href="{{ '/tags/' | url }}">Теги</a>
-</nav>
+<h1 class="home-title">рецепты</h1>
 
 <ul class="recipe-list">
   {% for secret in collections.secrets %}

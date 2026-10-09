@@ -10,22 +10,25 @@
 
 <body>
 
-{% if not hideHeader %}
-  <header>
-  <a href="{{ '/' | url }}" class="site-logo">
-    <span class="site-logo-mark">
+<header class="site-header">
+  <div class="site-header-container">
+    <a href="{{ '/' | url }}" class="site-logo">
       <picture>
         <source
           srcset="{{ '/logo-light.svg' | url }}"
           media="(prefers-color-scheme: light)">
         <img src="{{ '/favicon.svg?v=2' | url }}" alt="">
-</picture>
-      <span>koshelev</span>
-    </span>
-    <span>secrets</span>
-  </a>
-  </header>
-{% endif %}
+      </picture>
+    </a>
+
+    <div class="site-title">
+      <span class="site-title-full">koshelev secrets</span>
+      <span class="site-title-short">ks</span>
+    </div>
+
+    <a href="{{ '/tags/' | url }}" class="site-tags" aria-label="Теги">#</a>
+  </div>
+</header>
 
   <main>
   {{ content | safe }}

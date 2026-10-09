@@ -2,18 +2,11 @@
 layout: base.njk
 title: Теги
 permalink: "/tags/"
-hideHeader: true
 ---
-
-<h1 class="home-title">koshelev secrets</h1>
 
 <p class="home-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>
 
-<nav class="section-nav">
-  <a href="{{ '/' | url }}">Рецепты</a>
-  <span class="separator">|</span>
-  <span class="active">Теги</span>
-</nav>
+<h1 class="home-title">#{{title}}</h1>
 
 <ul class="recipe-list">
   {% for tag in collections.tagList %}

@@ -1,3 +1,4 @@
+
 /* ===== BASE ===== */
 
 *,
@@ -67,64 +68,79 @@ a:hover {
 
 /* ===== HEADER ===== */
 
-header {
+.site-header {
+  width: 100%;
   border-bottom: 1px solid var(--border);
   background: var(--bg-header);
 }
 
-header a {
-  display: flex;
+.site-header-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 0.7rem;
-  row-gap: 0;
 
   max-width: 75ch;
   margin: 0 auto;
   padding: 1rem 10px;
-
-  color: var(--text);
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: .5rem;
-
-  text-align: center;
 }
 
-.site-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  white-space: nowrap;
-}
-
-.site-logo picture {
+.site-logo {
+  justify-self: start;
   display: flex;
   align-items: center;
 }
 
+.site-logo picture,
 .site-logo img {
+  display: block;
   width: 1.8rem;
   height: 1.8rem;
-  object-fit: contain;
-  flex-shrink: 0;
 }
 
-header a:hover {
+.site-logo img {
+  object-fit: contain;
+}
+
+.site-title {
+  justify-self: center;
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.site-title-short {
+  display: none;
+}
+
+.site-tags {
+  justify-self: end;
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  text-decoration: none;
+  padding: 0.3rem;
+}
+
+.site-logo:hover,
+.site-tags:hover {
   color: var(--text-accent);
 }
 
-/* ===== HEADER ===== */
+
+/* ===== HOME ===== */
+
 .home-title {
   text-align: center;
-  letter-spacing: .5rem;
+  letter-spacing: 0.5rem;
 }
 
 .home-tagline {
   text-align: center;
 }
+
 
 /* ===== MAIN ===== */
 
@@ -209,23 +225,6 @@ li {
 }
 
 
-/* ===== MOBILE ===== */
-
-@media (max-width: 600px) {
-  body {
-    font-size: 1.2rem;
-  }
-
-  main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-}
-
 /* ===== LIST OF SECRETS ===== */
 
 .recipe-list {
@@ -255,6 +254,7 @@ li {
   color: var(--text-accent);
 }
 
+
 /* ===== SECRET PAGE ===== */
 
 main h1 {
@@ -279,6 +279,7 @@ main ol li {
   font-style: italic;
   color: var(--text-accent);
 }
+
 
 /* ===== NAV ===== */
 
@@ -306,4 +307,32 @@ main ol li {
 .error-title {
   font-size: 8rem;
   color: var(--text-accent);
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-title-full {
+    display: none;
+  }
+
+  .site-title-short {
+    display: inline;
+  }
 }
