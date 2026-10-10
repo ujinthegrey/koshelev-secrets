@@ -1,46 +1,57 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if tag %}#{{ tag }} — {% elseif title and title != "koshelev secrets" %}{{ title }} — {% endif %}koshelev secrets</title>  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
- 
+
+  <title>{% if tag %}#{{ tag }} — {% elseif title and title != "koshelev secrets" %}{{ title }} — {% endif %}koshelev secrets</title>
+
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <link rel="icon" href="{{ '/favicon.svg?v=2' | url }}" type="image/svg+xml">
 </head>
 
 <body>
 
-<header class="site-header">
-  <div class="site-header-container">
-    <a href="{{ '/' | url }}" class="site-logo">
-      <picture>
-        <source
-          srcset="{{ '/logo-light.svg' | url }}"
-          media="(prefers-color-scheme: light)">
-        <img src="{{ '/favicon.svg?v=2' | url }}" alt="">
-      </picture>
-    </a>
+  <header class="site-header">
+    <nav class="site-header-container" aria-label="Основная навигация">
+      <a href="{{ '/' | url }}" class="site-logo" aria-label="На главную">
+        <picture>
+          <source
+            srcset="{{ '/logo-light.svg' | url }}"
+            media="(prefers-color-scheme: light)">
+          <img src="{{ '/favicon.svg?v=2' | url }}" alt="">
+        </picture>
+      </a>
 
-    <div class="site-title">
-      <span class="site-title-full">koshelev secrets</span>
-      <span class="site-title-short">ks</span>
-    </div>
+      <div class="site-title">
+        <span class="site-title-full">koshelev secrets</span>
+        <span class="site-title-short">ks</span>
+      </div>
 
-    <a href="{{ '/tags/' | url }}" class="site-tags" aria-label="Теги">#</a>
-  </div>
-</header>
+      <a href="{{ '/tags/' | url }}" class="site-tags" aria-label="Все теги">#</a>
+    </nav>
+  </header>
 
   <main>
-  {{ content | safe }}
+    {{ content | safe }}
 
-  {% if tags %}
-    <div class="tags">
-      {% for tag in tags %}
-        <a class="tag" href="{{ '/tags/' | url }}{{ tag | slugify }}/">#{{ tag }}</a>
-      {% endfor %}
-    </div>
-  {% endif %}
+    {% if tags %}
+      <nav class="tags" aria-label="Теги рецепта">
+        {% for tag in tags %}
+          <a class="tag" href="{{ '/tags/' | url }}{{ tag | slugify }}/">#{{ tag }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-container">
+      <div class="site-footer-title">koshelev secrets</div>
+      <p class="site-footer-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>
+      <p class="site-footer-copyright">&#169; 2026 Евгений Кошелев</p>
+    </div>
+  </footer>
 
 </body>
 </html>

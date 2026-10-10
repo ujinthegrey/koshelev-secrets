@@ -4,6 +4,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
   eleventyConfig.addPassthroughCopy("src/logo-light.svg");
+  
+  eleventyConfig.addFilter("sortByTitle", function (recipes) {
+    return [...recipes].sort(function (a, b) {
+      return a.data.title.localeCompare(b.data.title, "ru");
+    });
+  });
 
   eleventyConfig.addCollection("secrets", function (collectionApi) {
     return collectionApi
