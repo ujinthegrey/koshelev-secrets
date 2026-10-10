@@ -1,3 +1,4 @@
+
 module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
@@ -5,7 +6,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/logo-light.svg");
 
   eleventyConfig.addCollection("secrets", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/secrets/*.md");
+    return collectionApi
+      .getFilteredByGlob("src/secrets/*.md")
+      .sort(function (a, b) {
+        return a.data.title.localeCompare(b.data.title, "ru");
+      });
   });
 
   eleventyConfig.addCollection("tagList", function (collectionApi) {
@@ -19,10 +24,9 @@ module.exports = function (eleventyConfig) {
       }
     });
 
-    console.log("TAGS:", [...tags]);
-    
-    return [...tags];
-
+    return [...tags].sort(function (a, b) {
+      return a.localeCompare(b, "ru");
+    });
   });
 
   return {
