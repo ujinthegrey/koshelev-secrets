@@ -4,9 +4,7 @@ title: Теги
 permalink: "/tags/"
 ---
 
-<p class="home-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>
-
-<h1 class="home-title">#{{title}}</h1>
+<h1 class="home-title">#{{title.toLowerCase()}}</h1>
 
 <ul class="recipe-list">
   {% for tag in collections.tagList %}
@@ -15,3 +13,5 @@ permalink: "/tags/"
     </li>
   {% endfor %}
 </ul>
+
+<p class="home-tagline">сайт лично проверенных рецептов Евгения Кошелева</p>

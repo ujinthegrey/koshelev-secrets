@@ -95,10 +95,15 @@ a:hover {
   display: block;
   width: 1.8rem;
   height: 1.8rem;
+  transition: opacity 0.2s ease;
 }
 
 .site-logo img {
   object-fit: contain;
+}
+
+.site-logo picture:hover {
+  opacity: .9;
 }
 
 .site-title {
@@ -117,27 +122,22 @@ a:hover {
 
 .site-tags {
   justify-self: end;
-  color: var(--text);
   font-size: 1.5rem;
   line-height: 1;
   text-decoration: none;
   padding: 0.3rem;
 }
 
-.site-logo:hover,
-.site-tags:hover {
-  color: var(--text-accent);
-}
-
-
 /* ===== HOME ===== */
 
 .home-title {
   text-align: center;
   letter-spacing: 0.5rem;
+  color: var(--text-accent);
 }
 
 .home-tagline {
+  padding-top: 3rem;
   text-align: center;
 }
 
