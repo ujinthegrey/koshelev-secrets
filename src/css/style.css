@@ -12,9 +12,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #222222;
-    --bg-header: rgba(255, 255, 255, 0.1);
     --text: #dddddd;
-    --text-accent: #daa743;
     --border: #444444;
 
     color-scheme: dark;
@@ -155,6 +153,7 @@ h4 {
 
 h1 {
   margin: 0 0 1.5rem;
+  color: var(--text-accent);
   font-size: 2.2rem;
   line-height: 1.2;
 }
@@ -169,6 +168,17 @@ h2 {
 h3 {
   margin-top: 2rem;
   font-size: 1.25rem;
+}
+
+main h1 {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+main h2 {
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
 
@@ -189,6 +199,10 @@ main > p:first-of-type {
   letter-spacing: 0.5rem;
 }
 
+body:has(#tag-list) .home-title {
+  font-style: italic;
+}
+
 .home-tagline {
   padding-top: 3rem;
   text-align: center;
@@ -204,6 +218,10 @@ ol {
 
 li {
   margin-bottom: 0.35rem;
+}
+
+main ol li {
+  margin-bottom: 0.8rem;
 }
 
 
@@ -230,6 +248,11 @@ li {
   padding: 0.9rem 0;
 }
 
+#tag-list a,
+.tag {
+  font-style: italic;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -240,26 +263,45 @@ li {
   border-top: 1px solid var(--border);
 }
 
-.tag {
+
+/* ===== SEARCH ===== */
+
+.recipe-search {
+  margin-bottom: 1.5rem;
+}
+
+.recipe-search input {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+
+  font: inherit;
+  color: inherit;
+
+  background: transparent;
+  border: 1px solid #888;
+  border-radius: 0;
+
+  transition: border-color 0.2s ease;
+}
+
+.recipe-search input:focus {
+  outline: none;
+  border-color: var(--text-accent);
+}
+
+.recipe-search input::placeholder {
+  color: inherit;
+  opacity: 0.55;
+}
+
+#tag-search {
   font-style: italic;
 }
 
-
-/* ===== RECIPE PAGE ===== */
-
-main h1 {
-  margin-bottom: 2.5rem;
-  text-align: center;
-}
-
-main h2 {
-  margin-top: 3rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border);
-}
-
-main ol li {
-  margin-bottom: 0.8rem;
+#search-empty,
+#tag-search-empty {
+  opacity: 0.7;
 }
 
 
@@ -302,12 +344,7 @@ main ol li {
   white-space: nowrap;
 }
 
-.site-footer-tagline {
-  margin: 1rem 0;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
+.site-footer-tagline,
 .site-footer-copyright {
   margin: 1rem 0;
   font-size: 0.9rem;

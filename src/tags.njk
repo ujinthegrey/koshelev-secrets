@@ -6,10 +6,47 @@ permalink: "/tags/"
 
 <h1 class="home-title">{{title.toLowerCase()}}</h1>
 
-<ul class="recipe-list">
+<div class="recipe-search">
+  <input
+    type="search"
+    id="tag-search"
+    placeholder="Поиск по тегам..."
+    aria-label="Поиск по тегам"
+  >
+</div>
+
+<ul class="recipe-list" id="tag-list">
   {% for tag in collections.tagList %}
     <li>
       <a href="{{ '/tags/' | url }}{{ tag | slugify }}/">#{{ tag }}</a>
     </li>
   {% endfor %}
 </ul>
+
+<p id="tag-search-empty" hidden>Теги не найдены.</p>
+
+<script>
+  const tagSearch = document.getElementById("tag-search");
+  const tagList = document.getElementById("tag-list");
+  const tagItems = Array.from(tagList.querySelectorAll("li"));
+  const tagEmptyMessage = document.getElementById("tag-search-empty");
+
+  tagSearch.addEventListener("input", () => {
+    const query = tagSearch.value.toLocaleLowerCase("ru").trim();
+    let visibleCount = 0;
+
+    tagItems.forEach((item) => {
+      const tagName = item.querySelector("a").textContent
+        .replace(/^#/, "")
+        .toLocaleLowerCase("ru");
+
+      const matches = tagName.includes(query);
+
+      item.hidden = !matches;
+
+      if (matches) visibleCount++;
+    });
+
+    tagEmptyMessage.hidden = visibleCount > 0;
+  });
+</script>

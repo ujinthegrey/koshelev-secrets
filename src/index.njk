@@ -5,10 +5,58 @@ title: koshelev secrets
 
 <h1 class="home-title">рецепты</h1>
 
-<ul class="recipe-list">
+<div class="recipe-search">
+  <input
+    type="search"
+    id="recipe-search"
+    placeholder="Поиск по рецептам и ингридиентам..."
+    aria-label="Поиск по названию и ингредиентам"
+  >
+</div>
+
+<ul class="recipe-list" id="recipe-list">
   {% for secret in collections.secrets %}
-    <li>
+    <li data-search="{{ secret.data.title | escape }}">
       <a href="{{ secret.url | url }}">{{ secret.data.title }}</a>
     </li>
   {% endfor %}
 </ul>
+
+<p id="search-empty" hidden>Рецепты не найдены.</p>
+
+<script>
+  const searchInput = document.getElementById("recipe-search");
+  const recipeList = document.getElementById("recipe-list");
+  const recipeItems = Array.from(recipeList.querySelectorAll("li"));
+  const emptyMessage = document.getElementById("search-empty");
+
+  const searchIndex = {{ collections.searchIndex | dump | safe }};
+
+  const normalize = (text) =>
+    text.toLocaleLowerCase("ru").trim();
+
+  const searchData = new Map(
+    searchIndex.map((recipe) => [
+      recipe.url,
+      normalize(recipe.title + " " + recipe.ingredients)
+    ])
+  );
+
+  searchInput.addEventListener("input", () => {
+    const query = normalize(searchInput.value);
+    let visibleCount = 0;
+
+    recipeItems.forEach((item) => {
+      const link = item.querySelector("a");
+      const url = link.getAttribute("href");
+      const searchableText = searchData.get(url) || normalize(link.textContent);
+      const matches = searchableText.includes(query);
+
+      item.hidden = !matches;
+
+      if (matches) visibleCount++;
+    });
+
+    emptyMessage.hidden = visibleCount > 0;
+  });
+</script>

@@ -1,4 +1,6 @@
 
+const fs = require("node:fs");
+
 module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
@@ -16,6 +18,50 @@ module.exports = function (eleventyConfig) {
       .getFilteredByGlob("src/secrets/*.md")
       .sort(function (a, b) {
         return a.data.title.localeCompare(b.data.title, "ru");
+      });
+  });
+
+  
+  eleventyConfig.addCollection("searchIndex", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/secrets/*.md")
+      .map(function (item) {
+        const content = fs.readFileSync(item.inputPath, "utf8");
+
+        const headingIndex = content.search(
+          /^##\s+Ингредиенты\s*$/im
+        );
+
+        let ingredients = "";
+
+        if (headingIndex !== -1) {
+          const afterHeading = content.slice(
+            headingIndex + content.match(/^##\s+Ингредиенты\s*$/im)[0].length
+          );
+
+          const nextHeading = afterHeading.search(/^#{1,6}\s/m);
+
+          ingredients = (
+            nextHeading === -1
+              ? afterHeading
+              : afterHeading.slice(0, nextHeading)
+          )
+            .split(/\r?\n/)
+            .map(function (line) {
+              return line
+                .replace(/^\s*[-*+]\s+/, "")
+                .replace(/\*\*/g, "")
+                .trim();
+            })
+            .filter(Boolean)
+            .join(" ");
+        }
+
+        return {
+          title: item.data.title,
+          url: item.url,
+          ingredients: ingredients
+        };
       });
   });
 
