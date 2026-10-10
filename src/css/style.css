@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
 
   background: var(--bg);
@@ -44,7 +45,7 @@ body {
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   line-height: 1.6;
 
   transition:
@@ -94,8 +95,8 @@ a:hover {
 .site-logo picture,
 .site-logo img {
   display: block;
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .site-logo img {
@@ -111,9 +112,9 @@ a:hover {
   justify-self: center;
 
   color: var(--text);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.25rem;
   text-align: center;
   white-space: nowrap;
 }
@@ -124,9 +125,9 @@ a:hover {
 
 .site-tags {
   justify-self: end;
-  padding: 0.3rem;
+  padding: 0.25rem;
 
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1;
 }
 
@@ -154,29 +155,23 @@ h4 {
 h1 {
   margin: 0 0 1.5rem;
   color: var(--text-accent);
-  font-size: 2.2rem;
+  font-size: 2.25rem;
   line-height: 1.2;
 }
 
 h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin: 2.5rem 0 1rem;
   font-size: 1.5rem;
   line-height: 1.3;
 }
 
-h3 {
-  margin-top: 2rem;
-  font-size: 1.25rem;
-}
-
 main h1 {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 main h2 {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
@@ -199,13 +194,8 @@ main > p:first-of-type {
   letter-spacing: 0.5rem;
 }
 
-body:has(#tag-list) .home-title {
+.tags-title {
   font-style: italic;
-}
-
-.home-tagline {
-  padding-top: 3rem;
-  text-align: center;
 }
 
 
@@ -217,11 +207,11 @@ ol {
 }
 
 li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
 }
 
 main ol li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
 
 
@@ -245,7 +235,7 @@ main ol li {
 
 .recipe-list a {
   display: block;
-  padding: 0.9rem 0;
+  padding: 1rem 0;
 }
 
 #tag-list a,
@@ -258,7 +248,7 @@ main ol li {
   flex-wrap: wrap;
   gap: 0.5rem;
 
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
 }
@@ -273,20 +263,21 @@ main ol li {
 .recipe-search input {
   display: block;
   width: 100%;
-  padding: 0.65rem 0.8rem;
+  padding: 0.75rem;
 
   font: inherit;
   color: inherit;
 
   background: transparent;
-  border: 1px solid #888;
+  border: 1px solid var(--border);
   border-radius: 0;
 
   transition: border-color 0.2s ease;
 }
 
-.recipe-search input:focus {
-  outline: none;
+.recipe-search input:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 3px;
   border-color: var(--text-accent);
 }
 
@@ -338,16 +329,16 @@ main ol li {
 
 .site-footer-title {
   color: var(--text);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.25rem;
   white-space: nowrap;
 }
 
 .site-footer-tagline,
 .site-footer-copyright {
   margin: 1rem 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.8;
 }
 
@@ -356,8 +347,7 @@ main ol li {
 
 @media (max-width: 600px) {
   main {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 2rem 10px;
   }
 
   h1 {
