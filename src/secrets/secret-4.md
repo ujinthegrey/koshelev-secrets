@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Кабачки жареные
+permalink: /fried-zucchini/
 tags:
   - жарка
   - овощи

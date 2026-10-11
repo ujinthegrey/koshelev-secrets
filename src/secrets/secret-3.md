@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Соус к мясу
+permalink: /meat-sauce/
 tags:
   - соус
 ---

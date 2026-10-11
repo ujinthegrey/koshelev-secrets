@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Оладьи на кефире
+permalink: /kefir-oladyi/
 tags:
   - выпечка
   - завтрак

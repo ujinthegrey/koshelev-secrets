@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Салат морковь с чесноком
+permalink: /carrot-and-garlic-salad/
 tags:
   - салат
 ---

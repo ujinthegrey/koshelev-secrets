@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Гренки
+permalink: /croutons/
 tags:
   - выпечка
   - завтрак

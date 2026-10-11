@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Курица запечённая
+permalink: /roasted-chicken/
 tags:
   - горячее
   - курица

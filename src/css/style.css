@@ -127,7 +127,7 @@ a:hover {
   justify-self: end;
   padding: 0.25rem;
 
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1;
 }
 
@@ -253,7 +253,6 @@ main ol li {
   border-top: 1px solid var(--border);
 }
 
-
 /* ===== SEARCH ===== */
 
 .recipe-search {
@@ -293,6 +292,10 @@ main ol li {
 #search-empty,
 #tag-search-empty {
   opacity: 0.7;
+}
+
+#tag-search-empty {
+  font-style: italic;
 }
 
 
