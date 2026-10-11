@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Салат морковь с чесноком
+title: Салат из моркови с чесноком
 permalink: /carrot-and-garlic-salad/
 tags:
   - салат
