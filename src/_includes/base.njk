@@ -48,10 +48,33 @@
   <footer class="site-footer">
     <div class="site-footer-container">
       <div class="site-footer-title">koshelev secrets</div>
-      <p class="site-footer-tagline" title="Да, я знаю, что формально в полных предложениях после слова «рецепты» нужна запятая, но в контексте заголовка или слогана сайта, как здесь, вполне допустима упрощённая пунктуация.">рецепты проверенные лично</p>
+      <p class="site-footer-tagline" id="site-footer-tagline" title="Да, я знаю, что формально в полных предложениях после слова «рецепты» нужна запятая, но в контексте заголовка или слогана сайта, как здесь, вполне допустима упрощённая пунктуация.">рецепты проверенные лично</p>
       <p class="site-footer-copyright">&#169; 2026 Евгений Кошелев</p>
     </div>
   </footer>
+
+
+<script>
+  document.addEventListener('copy', (event) => {
+    const selection = window.getSelection();
+    const tagline = document.getElementById('site-footer-tagline');
+
+    if (
+      selection &&
+      tagline &&
+      selection.containsNode(tagline, true) &&
+      tagline.parentElement &&
+      tagline.closest('footer') &&
+      selection.toString().length <= tagline.closest('footer').innerText.length
+    ) {
+      event.clipboardData.setData(
+        'text/plain',
+        'Да, я знаю, что формально в полных предложениях после слова «рецепты» нужна запятая, но в контексте заголовка или слогана сайта, как здесь, вполне допустима упрощённая пунктуация.'
+      );
+      event.preventDefault();
+    }
+  });
+</script>
 
 </body>
 </html>
